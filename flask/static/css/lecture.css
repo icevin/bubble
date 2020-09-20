@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+.text {
+    font-family: Asap;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 73px;
+}
+
+.pseudo-black {
+    color: #373737;
+}
+
+.page-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: minmax(0, 4fr) minmax(0, 32fr) minmax(0, 14fr);
+    box-sizing: content-box;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+}
+
+.logo {
+    font-family: Asap;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 4em;
+    line-height: 8vh;
+    color: #373737;
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.sidebar {
+    max-height: 100%;
+    height: 100%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 10fr) minmax(0, 1fr);
+}
+
+.footer {
+    width: auto;
+    height: 100%;
+    grid-column: 1 / -1
+}
+
+.bubble-nav-button-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15 px;
+}
+
+button.bubble-nav-button {
+    flex: none;
+    order: 3;
+    align-self: center;
+    margin: 15px;
+    position: relative;
+    width: 150px;
+    height: 50px;
+    left: 0px;
+    top: 0px;
+    background-color: #FFFFFF;
+    border: 3px solid #000000;
+    box-sizing: border-box;
+    border-radius: 29px;
+    font-family: Asap;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5em;
+    line-height: 50px;
+    text-align: center;
+    color: #000000;
+}
+
+.bubble-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.bubble-submit: {
+    width: 100%;
+    height: auto;
+}
+
+#jitsi {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+div {
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+body {
+    margin: 0px;
+}

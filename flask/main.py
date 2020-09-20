@@ -5,19 +5,22 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config[ 'SECRET_KEY' ] = 'jsbcfsbfjefebw237u3gdbdc'
-app.config[ 'SQLALCHEMY_DATABASE_URI' ] = 'sqlite:///test.db'
+app.config['SECRET_KEY'] = 'jsbcfsbfjefebw237u3gdbdc'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 socketio = SocketIO(app)
 db = SQLAlchemy(app)
 
-@app.route( '/' )
+
+@app.route('/lecture')
 def hello():
-  return render_template('./index.html')
+    return render_template('index.html')
+
 
 @socketio.on('message')
-def handle_my_custom_event( json ):
-  print( 'received message: ' + str( json ) )
-  socketio.emit('my response', json)
+def handle_my_custom_event(json):
+    print('received message: ' + str(json))
+    socketio.emit('my response', json)
+
 
 if __name__ == '__main__':
-  socketio.run( app, debug = True )
+    socketio.run(app, debug=True)
