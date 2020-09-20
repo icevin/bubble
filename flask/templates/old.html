@@ -10,7 +10,10 @@
       <div class="col-sm-8">
       </div>
       <div class="col-sm-4">
-        <div class="message_holder"></div>
+        <div class="message_holder">
+        </div>
+      </div>
+        </div>
         <hr>
         <form action="" method="POST">
           <b>Ask your question below:</b>
@@ -30,7 +33,7 @@
     <script>
       var socket = io.connect( 'http://' + document.domain + ':' + location.port )
       //broadcast a message
-      socket.on( 'connect', function() {
+      socket.on('connect', function() {
         socket.emit('message', {
           data: 'User Connected'
         } )
@@ -43,13 +46,15 @@
                   message : user_input
                 } )
               $('input.message').val( '' ).focus()
-            } )
+        } )
+        //make another form variable?
       } )
 
       socket.on('my response', function(msg) {
         console.log(msg)
         if( typeof msg.user_name !== 'undefined') {
-          $( 'div.message_holder' ).append( '<div class="msg_bbl"><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+         $( 'div.message_holder' ).append( '<div class="msg_bbl"><b style="color: #000">'+ msg.user_name +'</b> '+ msg.message +'</div>' )
+         $( 'div.message_holder' ).append( '<form action="" method="POST"><button type="pop" class="btn btn-default">Pop</button></form>' )
         }
       } )
     </script>
