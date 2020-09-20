@@ -168,9 +168,6 @@ span.psw {
 
 @font-face {
 font-family: Asap;
-src: url(Asap/Asap-Medium.ttf);
+src: url(../Asap/Asap-Medium.ttf);
 }
-@font-face {
-font-family: Asap Bold;
-src: url(Asap/Asap-Bold.ttf);
-}
+
