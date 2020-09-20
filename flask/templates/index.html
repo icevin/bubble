@@ -1,99 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <title>Bubble</title>
-    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/lecture.css') }}" rel="stylesheet">
-</head>
-
-<body>
-    <div class="page-wrapper">
-        <div class="header" style="background-color: red">
-            <div class="logo">
-                Bubble
-            </div>
-        </div>
-        <div class="video" style="background-color: blue">
-            <script src="https://meet.jit.si/external_api.js"></script>
-            <div id="jitsi">
-                <script>
-                    var domain = "meet.jit.si";
-                    var options = {
-                        roomName: "JitsiMeetAPIExample",
-                        width: "100%",
-                        height: "100%",
-                        parentNode: document.querySelector('#jitsi'),
-                        configOverwrite: {
-                            startWithAudioMuted: true
-                        },
-                        interfaceConfigOverwrite: {
-                            filmStripOnly: false
-                        }
-                    }
-                    var api = new JitsiMeetExternalAPI(domain, options);
-                </script>
-            </div>
-        </div>
-        <div class="sidebar" style="background-color: green">
-            <div class="bubble-nav-button-bar" style="background-color: yellow">
-                <button class="bubble-nav-button">Top</button>
-                <button class="bubble-nav-button">New</button>
-                <button class="bubble-nav-button">Answered</button>
-                <button class="bubble-nav-button">Chat</button>
-            </div>
-            <div class="bubble-list" style="background-color: cyan"></div>
-            <div class="bubble-submit" style="background-color: tan"></div>
-        </div>
-        <div class="footer" style="background-color: grey"></div>
+  <head>
+    <title>Bubble Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    <link rel="stylesheet" href="../src/App.css" />
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="container">
+      <div class="col-sm-8">
+      </div>
+      <div class="col-sm-4">
+        <div class="message_holder"></div>
+        <hr>
+        <form action="" method="POST">
+          <b>Ask your question below:</b>
+          <div class="clearfix" style="margin-top: 5px;"></div>
+          <input type="text" class="username form-control" placeholder="User Name">
+          <div style="padding-top: 5px;"></div>
+          <input type="text" class="message form-control" placeholder="Messages">
+          <button type="submit" class="btn btn-default">Send</button>
+        </form>
+      </div>
     </div>
-    <!-- <div class="page-container">
-        <div class="col-sm-8">
-        </div>
-        <div class="col-sm-4">
-            <div class="message_holder"></div>
-            <hr>
-            <form action="" method="POST">
-                <b>Ask your question below:</b>
-                <div class="clearfix" style="margin-top: 5px;"></div>
-                <input type="text" class="username form-control" placeholder="User Name">
-                <div style="padding-top: 5px;"></div>
-                <input type="text" class="message form-control" placeholder="Messages">
-                <button type="submit" class="btn btn-default">Send</button>
-            </form>
-        </div>
-    </div> -->
-
+    <script src="https://meet.jit.si/external_api.js"></script>
+    <div id="jitsi">
+    <script>
+      var username = localStorage.getItem("name");
+      var domain = "meet.jit.si";
+      var options = {
+          roomName: "sample-room",
+          width: "60%",
+          height: 500,
+          parentNode: document.querySelector('#jitsi'),
+          configOverwrite: {startWithAudioMuted: true},
+          interfaceConfigOverwrite: {
+              filmStripOnly: false
+          },
+          userInfo: {
+              displayName: localStorage.getItem("name");
+          }
+      }
+      var api = new JitsiMeetExternalAPI(domain, options);
+      </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script>
-        var socket = io.connect('http://' + document.domain + ':' + location.port)
-            //broadcast a message
-        socket.on('connect', function() {
-            socket.emit('message', {
-                data: 'User Connected'
-            })
-            var form = $('form').on('submit', function(e) {
-                e.preventDefault()
-                let user_name = $('input.username').val()
-                let user_input = $('input.message').val()
+      var socket = io.connect( 'http://' + document.domain + ':' + location.port )
+      //broadcast a message
+      socket.on( 'connect', function() {
+        socket.emit('message', {
+          data: 'User Connected'
+        } )
+        var form = $( 'form' ).on('submit', function(e) {
+              e.preventDefault()
+              let user_name = $('input.username').val()
+              let user_input = $('input.message').val()
                 socket.emit('message', {
-                    user_name: user_name,
-                    message: user_input
-                })
-                $('input.message').val('').focus()
-            })
-        })
+                  user_name : user_name,
+                  message : user_input
+                } )
+              $('input.message').val( '' ).focus()
+            } )
+      } )
 
-        socket.on('my response', function(msg) {
-            console.log(msg)
-            if (typeof msg.user_name !== 'undefined') {
-                $('div.message_holder').append('<div class="msg_bbl"><b style="color: #000">' + msg.user_name + '</b> ' + msg.message + '</div>')
-            }
-        })
+      socket.on('my response', function(msg) {
+        console.log(msg)
+        if( typeof msg.user_name !== 'undefined') {
+          $( 'div.message_holder' ).append( '<div class="msg_bbl"><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }
+      } )
     </script>
-</body>
 
+
+  </body>
 </html>

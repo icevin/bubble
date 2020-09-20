@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <!--  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="../static/css/login.css" />
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -34,7 +34,7 @@
     <!-- Attendee -->
     <form class="modal-content animate" action="./index.html">
       <div class="imgcontainer">
-        <img src="./images/avatar.png" alt="Avatar" class="avatar">
+        <img src="../static/css/images/avatar.png" alt="Avatar" class="avatar">
       </div>
 
       <div class="container">
@@ -95,9 +95,18 @@ window.onclick = function(event) {
 function getData()
 {
     //gettting the value
+    var name = document.getElementById("host-name").value;
     var room = document.getElementById("room-name").value;
     //saving the values in local storage
+    localStorage.setItem("name", name);
     localStorage.setItem("room", room);
+}
+function getDataAttendee()
+{
+    //gettting the value
+    var name = document.getElementById("attendee-name").value;
+    //saving the values in local storage
+    localStorage.setItem("name", name);
 }
 </script>
 </html>

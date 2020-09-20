@@ -11,9 +11,9 @@ socketio = SocketIO(app)
 db = SQLAlchemy(app)
 
 
-@app.route('/lecture')
+@app.route('/')
 def hello():
-    return render_template('old.html')
+    return render_template('login.html')
 
 
 @socketio.on('message')

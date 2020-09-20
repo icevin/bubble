@@ -35,6 +35,7 @@
     <script src="https://meet.jit.si/external_api.js"></script>
     <div id="jitsi">
       <script>
+      var username = localStorage.getItem("name");
       var domain = "meet.jit.si";
       var options = {
           roomName: localStorage.getItem("room"),
@@ -45,6 +46,9 @@
           interfaceConfigOverwrite: {
               filmStripOnly: false
           },
+          userInfo: {
+              displayName: localStorage.getItem("name");
+          }
       }
       var api = new JitsiMeetExternalAPI(domain, options);
       </script>
