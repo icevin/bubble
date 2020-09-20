@@ -15,6 +15,13 @@ db = SQLAlchemy(app)
 def hello():
     return render_template('login.html')
 
+@app.route('/index.html')
+def attendee():
+    return render_template('index.html')
+    
+@app.route('/host.html')
+def host():
+    return render_template('host.html')
 
 @socketio.on('message')
 def handle_my_custom_event(json):
