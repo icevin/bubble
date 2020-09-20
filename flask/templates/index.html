@@ -5,6 +5,13 @@
     <title>Bubble</title>
     <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/lecture.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js" integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg==" crossorigin="anonymous"></script>
+    <script>
+        function time_since_date(date) {
+            return moment(date).fromNow()
+        }
+    </script>
 </head>
 
 <body>
@@ -42,10 +49,205 @@
                 <button class="bubble-nav-button">Answered</button>
                 <button class="bubble-nav-button">Chat</button>
             </div>
-            <div class="bubble-list" style="background-color: cyan"></div>
-            <div class="bubble-submit" style="background-color: tan"></div>
+            <div class="bubble-list" style="background-color: cyan">
+                <div class="bubble-wrapper">
+                    <div class="bubble-body-wrapper">
+                        <div class="bubble-logo" onmouseover="make_hover(this);">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.0902 8.78039L19.6312 7.88354L18.7378 8.34918C16.0663 9.74155 13.6854 11.6134 11.7089 13.8504L11.028 14.6211L11.8175 15.2802L15.0433 17.973L15.7852 18.5924L16.4295 17.872C17.8845 16.2451 19.6273 14.8817 21.5773 13.8618L22.4556 13.4024L22.0041 12.5201L20.0902 8.78039ZM59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30Z" fill="white" stroke="black" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="bubble-body-text">
+                            <div class="bubble-body-title">
+                                <b>Name</b> asked...
+                            </div>
+                            <div class="bubble-body-question">
+                                Why does sli.do exist when lorem ipsum ubuntu vscode github lecture css delete transport socket io
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bubble-info-wrapper">
+                        <div class="bubble-info-context-menu">
+
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="25" r="16" stroke="black" stroke-width="2"/>
+                                    <path d="M24 12V25L34 21.5" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">5 minutes ago</div>
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="8" y="15.0833" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    <rect x="16.5" y="8" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">5</div>
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.2308 14V34.3333L9.44731 38.8415C9.0659 39.8056 10.2231 40.6416 11.0186 39.9766L17.7692 34.3333H35C37.7614 34.3333 40 32.0948 40 29.3333V14C40 11.2386 37.7614 9 35 9H16.2308C13.4693 9 11.2308 11.2386 11.2308 14Z" stroke="black" stroke-width="2"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bubble-wrapper">
+                    <div class="bubble-body-wrapper">
+                        <div class="bubble-logo" onmouseover="make_hover(this);">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.0902 8.78039L19.6312 7.88354L18.7378 8.34918C16.0663 9.74155 13.6854 11.6134 11.7089 13.8504L11.028 14.6211L11.8175 15.2802L15.0433 17.973L15.7852 18.5924L16.4295 17.872C17.8845 16.2451 19.6273 14.8817 21.5773 13.8618L22.4556 13.4024L22.0041 12.5201L20.0902 8.78039ZM59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30Z" fill="white" stroke="black" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="bubble-body-text">
+                            <div class="bubble-body-title">
+                                <b>Name</b> asked...
+                            </div>
+                            <div class="bubble-body-question">
+                                Why does sli.do exist when lorem ipsum ubuntu vscode github lecture css delete transport socket io
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bubble-info-wrapper">
+                        <div class="bubble-info-context-menu">
+
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="25" r="16" stroke="black" stroke-width="2"/>
+                                    <path d="M24 12V25L34 21.5" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">5 minutes ago</div>
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="8" y="15.0833" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    <rect x="16.5" y="8" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">5</div>
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.2308 14V34.3333L9.44731 38.8415C9.0659 39.8056 10.2231 40.6416 11.0186 39.9766L17.7692 34.3333H35C37.7614 34.3333 40 32.0948 40 29.3333V14C40 11.2386 37.7614 9 35 9H16.2308C13.4693 9 11.2308 11.2386 11.2308 14Z" stroke="black" stroke-width="2"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bubble-wrapper self">
+                    <div class="bubble-body-wrapper">
+                        <div class="bubble-logo" onmouseover="make_hover(this);">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.0902 8.78039L19.6312 7.88354L18.7378 8.34918C16.0663 9.74155 13.6854 11.6134 11.7089 13.8504L11.028 14.6211L11.8175 15.2802L15.0433 17.973L15.7852 18.5924L16.4295 17.872C17.8845 16.2451 19.6273 14.8817 21.5773 13.8618L22.4556 13.4024L22.0041 12.5201L20.0902 8.78039ZM59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30Z" fill="white" stroke="black" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="bubble-body-text">
+                            <div class="bubble-body-title">
+                                <b>Name</b> asked...
+                            </div>
+                            <div class="bubble-body-question">
+                                Why does sli.do exist when lorem ipsum ubuntu vscode github lecture css delete transport socket io
+                            </div>
+                        </div>
+                    </div>
+                    <span class="bubble-info-wide">
+                    <div class="bubble-info-wrapper">
+                        <div class="bubble-info-context-menu">
+
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="25" r="16" stroke="black" stroke-width="2"/>
+                                    <path d="M24 12V25L34 21.5" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">5 minutes ago</div>
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="8" y="15.0833" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    <rect x="16.5" y="8" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">5</div>
+                        </div>
+                        <div class="bubble-info-section">
+                            <div class="bubble-info-icon-wrapper">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.2308 14V34.3333L9.44731 38.8415C9.0659 39.8056 10.2231 40.6416 11.0186 39.9766L17.7692 34.3333H35C37.7614 34.3333 40 32.0948 40 29.3333V14C40 11.2386 37.7614 9 35 9H16.2308C13.4693 9 11.2308 11.2386 11.2308 14Z" stroke="black" stroke-width="2"/>
+                                    </svg>
+                            </div>
+                            <div class="bubble-info-text">3</div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="bubble-wrapper">
+                <div class="bubble-body-wrapper">
+                    <div class="bubble-logo" onmouseover="make_hover(this);">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.0902 8.78039L19.6312 7.88354L18.7378 8.34918C16.0663 9.74155 13.6854 11.6134 11.7089 13.8504L11.028 14.6211L11.8175 15.2802L15.0433 17.973L15.7852 18.5924L16.4295 17.872C17.8845 16.2451 19.6273 14.8817 21.5773 13.8618L22.4556 13.4024L22.0041 12.5201L20.0902 8.78039ZM59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30Z" fill="white" stroke="black" stroke-width="2"/>
+                            </svg>
+                    </div>
+                    <div class="bubble-body-text">
+                        <div class="bubble-body-title">
+                            <b>Name</b> asked...
+                        </div>
+                        <div class="bubble-body-question">
+                            Why does sli.do exist when lorem ipsum ubuntu vscode github lecture css delete transport socket io
+                        </div>
+                    </div>
+                </div>
+                <div class="bubble-info-wrapper">
+                    <div class="bubble-info-context-menu">
+
+                    </div>
+                    <div class="bubble-info-section">
+                        <div class="bubble-info-icon-wrapper">
+                            <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="25" r="16" stroke="black" stroke-width="2"/>
+                                    <path d="M24 12V25L34 21.5" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                                    </svg>
+                        </div>
+                        <div class="bubble-info-text">5 minutes ago</div>
+                    </div>
+                    <div class="bubble-info-section">
+                        <div class="bubble-info-icon-wrapper">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="8" y="15.0833" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    <rect x="16.5" y="8" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                                    </svg>
+                        </div>
+                        <div class="bubble-info-text">5</div>
+                    </div>
+                    <div class="bubble-info-section">
+                        <div class="bubble-info-icon-wrapper">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.2308 14V34.3333L9.44731 38.8415C9.0659 39.8056 10.2231 40.6416 11.0186 39.9766L17.7692 34.3333H35C37.7614 34.3333 40 32.0948 40 29.3333V14C40 11.2386 37.7614 9 35 9H16.2308C13.4693 9 11.2308 11.2386 11.2308 14Z" stroke="black" stroke-width="2"/>
+                                    </svg>
+                        </div>
+                        <div class="bubble-info-text">3</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer" style="background-color: grey"></div>
+        <div class="bubble-submit" style="background-color: tan"></div>
+    </div>
+    <div class="footer" style="background-color: grey"></div>
     </div>
     <!-- <div class="page-container">
         <div class="col-sm-8">

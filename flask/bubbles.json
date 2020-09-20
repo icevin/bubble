@@ -1,0 +1,28 @@
+{
+    "title": "Why is this even a question that should be asked?",
+    "user": "Kevin",
+    "id": "23123",
+    "timestamp": "2020-09-19T07:07:00-06:30",
+    "comments": [{
+            "content": "I agree!",
+            "timestamp": "2020-09-19T07:21:00-06:30",
+            "user": "Kevin Earliest"
+        },
+        {
+            "content": "yo soy agree! middle",
+            "timestamp": "2020-09-19T07:22:00-06:30",
+            "user": "Kevin Middle"
+        },
+        {
+            "content": "me agree! latest",
+            "timestamp": "2020-09-19T07:23:00-06:30",
+            "user": "Kevin Last"
+        }
+    ],
+    "duplicates": [
+        "2312312312",
+        "2131232",
+        "3214838",
+        "349294392",
+    ]
+}

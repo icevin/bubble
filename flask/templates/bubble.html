@@ -1,0 +1,52 @@
+{{ #if self}}
+<div class="bubble-wrapper self">
+    {{else}}
+    <div class="bubble-wrapper">
+        {{/if}}
+        <div class="bubble-body-wrapper">
+            <div class="bubble-logo" onmouseover="make_hover(this);">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.0902 8.78039L19.6312 7.88354L18.7378 8.34918C16.0663 9.74155 13.6854 11.6134 11.7089 13.8504L11.028 14.6211L11.8175 15.2802L15.0433 17.973L15.7852 18.5924L16.4295 17.872C17.8845 16.2451 19.6273 14.8817 21.5773 13.8618L22.4556 13.4024L22.0041 12.5201L20.0902 8.78039ZM59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30Z" fill="white" stroke="black" stroke-width="2"/>
+            </svg>
+            </div>
+            <div class="bubble-body-text">
+                <div class="bubble-body-title">
+                    <b>{{ user }}</b> asked...
+                </div>
+                <div class="bubble-body-question">
+                    {{ title }}
+                </div>
+            </div>
+        </div>
+        <div class="bubble-info-wrapper">
+            <div class="bubble-info-context-menu">
+
+            </div>
+            <div class="bubble-info-section">
+                <div class="bubble-info-icon-wrapper">
+                    <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="25" r="16" stroke="black" stroke-width="2"/>
+                    <path d="M24 12V25L34 21.5" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="bubble-info-text">5 minutes ago</div>
+            </div>
+            <div class="bubble-info-section">
+                <div class="bubble-info-icon-wrapper">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="15.0833" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                    <rect x="16.5" y="8" width="23.5" height="26.3334" rx="4" stroke="black" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="bubble-info-text">{{ comments.length }}</div>
+            </div>
+            <div class="bubble-info-section">
+                <div class="bubble-info-icon-wrapper">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.2308 14V34.3333L9.44731 38.8415C9.0659 39.8056 10.2231 40.6416 11.0186 39.9766L17.7692 34.3333H35C37.7614 34.3333 40 32.0948 40 29.3333V14C40 11.2386 37.7614 9 35 9H16.2308C13.4693 9 11.2308 11.2386 11.2308 14Z" stroke="black" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="bubble-info-text">{{ duplicates.length }}</div>
+            </div>
+        </div>
+    </div>

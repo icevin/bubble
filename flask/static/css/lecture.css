@@ -78,7 +78,7 @@ button.bubble-nav-button {
     align-self: center;
     margin: 15px;
     position: relative;
-    width: 150px;
+    width: 120px;
     height: 50px;
     left: 0px;
     top: 0px;
@@ -89,7 +89,7 @@ button.bubble-nav-button {
     font-family: Asap;
     font-style: normal;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 1.3em;
     line-height: 50px;
     text-align: center;
     color: #000000;
@@ -98,11 +98,141 @@ button.bubble-nav-button {
 .bubble-list {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 30px;
 }
 
-.bubble-submit: {
+.bubble-submit {
     width: 100%;
     height: auto;
+}
+
+.bubble-wrapper {
+    flex: none;
+    order: 3;
+    margin: 10px;
+}
+
+.bubble-body-wrapper {
+    width: 500px;
+    height: auto;
+    min-height: 120px;
+    position: relative;
+    background: #FFFFFF;
+    display: inline-block;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 47px;
+    border-bottom-left-radius: 0px;
+    margin-bottom: -3px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    grid-template-rows: 1fr;
+}
+
+.self .bubble-body-wrapper {
+    width: 500px;
+    height: auto;
+    min-height: 120px;
+    position: relative;
+    background: #CFFEE8;
+    display: inline-block;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 47px;
+    border-bottom-left-radius: 47px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: -3px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    grid-template-rows: 1fr;
+    float: right;
+}
+
+.bubble-body-text {
+    grid-column: 2 / 2;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    font-family: Asap;
+    font-style: normal;
+}
+
+.bubble-body-title {
+    font-size: 1.1em;
+    line-height: 14px;
+    padding-top: 5px;
+}
+
+.bubble-body-question {
+    font-weight: 600;
+    font-size: 1.5em;
+    line-height: 32px;
+    padding: 15px 0px;
+    padding-right: 10px;
+}
+
+.bubble-info-wrapper {
+    position: relative;
+    width: 311px;
+    height: 53px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 26px;
+    border-top-left-radius: 0px;
+    margin-top: -3px;
+    display: flex;
+    flex-direction: row;
+}
+
+.self .bubble-info-wrapper {
+    position: relative;
+    width: 311px;
+    height: 53px;
+    background: #CFFEE8;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 26px;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 0px;
+    margin-top: -3px;
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.bubble-info-section {
+    height: 100%;
+    padding: 3px 10px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.bubble-info-icon-wrapper {
+    width: 40px;
+    height: 40px;
+}
+
+.bubble-info-text {
+    font-family: Asap;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000000;
+    padding: 10px 0px;
+}
+
+.bubble-logo {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 60px;
+    height: 60px;
+    grid-column: 1/1;
 }
 
 #jitsi {
@@ -119,4 +249,9 @@ div {
 
 body {
     margin: 0px;
+}
+
+svg {
+    height: 100%;
+    widtH: 100%;
 }
