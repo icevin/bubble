@@ -20,10 +20,17 @@ class Bubble(db.Model):
     time_created = db.Column(db.Float)
     name = db.Column(db.String(200), nullable=False)
 
+@app.route('/')
+def hello():
+    return render_template('login.html')
 
 @app.route('/lecture')
-def hello():
+def attendee():
     return render_template('index.html')
+
+@app.route('/host')
+def host():
+    return render_template('host.html')
 
 
 @socketio.on('pop')

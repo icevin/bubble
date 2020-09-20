@@ -56,8 +56,33 @@
                 </form>
             </div>
         </div>
-
-        <div class="footer" style="background-color: grey"></div>
+        <link href="{{ url_for('static', filename='css/timeline.css') }}" rel="stylesheet">
+        <div class="footer" style="background-color: grey">
+            <div class="process-wrapper">
+                <div id="progress-bar-container">
+                    <ul>
+                        <li class="step step01 active">
+                            <div class="step-inner">Q1</div>
+                        </li>
+                        <li class="step step02">
+                            <div class="step-inner">Q2</div>
+                        </li>
+                        <li class="step step03">
+                            <div class="step-inner">Q3</div>
+                        </li>
+                        <li class="step step04">
+                            <div class="step-inner">Q4</div>
+                        </li>
+                        <li class="step step05">
+                            <div class="step-inner">Q5</div>
+                        </li>
+                    </ul>
+                    <div id="line">
+                        <div id="line-process"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     {% raw %}
