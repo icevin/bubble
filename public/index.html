@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <!--  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Bubble Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     <link rel="stylesheet" href="../src/App.css" />
-
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>bubble</title>
-    
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="container">
+      <div class="col-sm-8">
+      </div>
+      <div class="col-sm-4">
+        <div class="message_holder"></div>
+        <hr>
+        <form action="" method="POST">
+          <b>Ask your question below:</b>
+          <div class="clearfix" style="margin-top: 5px;"></div>
+          <input type="text" class="username form-control" placeholder="User Name">
+          <div style="padding-top: 5px;"></div>
+          <input type="text" class="message form-control" placeholder="Messages">
+          <button type="submit" class="btn btn-default">Send</button>
+        </form>
+      </div>
+    </div>
     <script src="https://meet.jit.si/external_api.js"></script>
     <div id="jitsi">
-      <script>
+    <script>
       var domain = "meet.jit.si";
       var options = {
-          roomName: "JitsiMeetAPIExample",
+          roomName: "kwealen5w6p0",
           width: "60%",
           height: 500,
-          parentNode: undefined,
+          parentNode: document.querySelector('#jitsi'),
           configOverwrite: {startWithAudioMuted: true},
           interfaceConfigOverwrite: {
               filmStripOnly: false
@@ -48,16 +40,37 @@
       }
       var api = new JitsiMeetExternalAPI(domain, options);
       </script>
-    </div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script>
+      var socket = io.connect( 'http://' + document.domain + ':' + location.port )
+      //broadcast a message
+      socket.on( 'connect', function() {
+        socket.emit('message', {
+          data: 'User Connected'
+        } )
+        var form = $( 'form' ).on('submit', function(e) {
+              e.preventDefault()
+              let user_name = $('input.username').val()
+              let user_input = $('input.message').val()
+                socket.emit('message', {
+                  user_name : user_name,
+                  message : user_input
+                } )
+              $('input.message').val( '' ).focus()
+            } )
+      } )
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      socket.on('my response', function(msg) {
+        console.log(msg)
+        if( typeof msg.user_name !== 'undefined') {
+          $( 'div.message_holder' ).append( '<div class="msg_bbl"><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }
+      } )
+    </script>
+
+
   </body>
 </html>

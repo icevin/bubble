@@ -13,7 +13,7 @@ db = SQLAlchemy(app)
 
 @app.route('/lecture')
 def hello():
-    return render_template('index.html')
+    return render_template('old.html')
 
 
 @socketio.on('message')
